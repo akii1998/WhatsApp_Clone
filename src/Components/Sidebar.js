@@ -39,7 +39,7 @@ function Sidebar({ currentUser, signOut }) {
   }, []);
   // console.log(allUsers);
 
-  const searchUSer = allUsers.filter((user) => {
+  const searchUSer = allUsers.filter((user) =>{
     if (searchInput) {
       if (
         user.data().fullname.toLowerCase().includes(searchInput.toLowerCase())
@@ -104,3 +104,4 @@ function Sidebar({ currentUser, signOut }) {
 }
 
 export default Sidebar;
+

@@ -24,6 +24,7 @@ function Login({ setUser }) {
   };
   return (
     <div className="login">
+
       <div className="login-container">
         <img
           className="login-logo"
