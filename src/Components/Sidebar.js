@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "./Sidebar.css";
-import { Logout, LogoutSharp, Search, ToggleOffTwoTone, ToggleOnSharp } from "@mui/icons-material";
+import {
+  Logout,
+  Search,
+} from "@mui/icons-material";
 import Userprofile from "./Userprofile";
 import db from "../firebase";
-import { ToggleButton } from "@mui/material";
-function Sidebar({ currentUser, signOut }) {
+import { Switch } from "@mui/material";
+function Sidebar({ currentUser, signOut}) {
   const [allUsers, setAllUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [friendList, setFriendList] = useState([]);
+  const[theme,setTheme]=useState("light-theme")
 
   //to perfrom background works
 
@@ -40,7 +42,7 @@ function Sidebar({ currentUser, signOut }) {
   }, []);
   // console.log(allUsers);
 
-  const searchUSer = allUsers.filter((user) =>{
+  const searchUSer = allUsers.filter((user) => {
     if (searchInput) {
       if (
         user.data().fullname.toLowerCase().includes(searchInput.toLowerCase())
@@ -61,6 +63,18 @@ function Sidebar({ currentUser, signOut }) {
       />
     );
   });
+  const themeChanger=()=>{
+    if(theme ==='dark-theme'){
+      setTheme('light-theme')
+    }
+    else{
+      setTheme('dark-theme')
+    }
+  }
+  useEffect(()=>{
+  document.body.className=theme;
+  
+  },[theme])
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -68,9 +82,12 @@ function Sidebar({ currentUser, signOut }) {
           <img src={currentUser?.photoURL} alt="" />
         </div>
         <div className="sidebar-header-btn">
-           <ToggleOffTwoTone/>
+          <Switch
+            onClick={ themeChanger}
+            inputProps={{ "aria-label": "controlled" }}
+          />
           <InsertCommentIcon />
-          <Logout onClick ={signOut}/>
+          <Logout onClick={signOut} />
         </div>
       </div>
 
@@ -105,5 +122,3 @@ function Sidebar({ currentUser, signOut }) {
 }
 
 export default Sidebar;
-
-

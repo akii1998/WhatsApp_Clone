@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
-
 import ChatPage from "./Components/ChatPage";
 import { useState } from "react";
 import Login from "./Components/Login";
@@ -9,6 +8,7 @@ import { auth } from "./firebase";
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
+  
   const signOut = () => {
     auth
     .signOut()
@@ -18,6 +18,9 @@ function App() {
     })
     .catch((err) => alert(err.message));
 };
+
+//for theme change of the app
+
   return (
     <Router>
       <div className="App">

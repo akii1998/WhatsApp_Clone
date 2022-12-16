@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar'
 import "./Home.css";
-function Home({currentUser,signOut}) {
+function Home({currentUser,signOut, themeChanger}) {
   return (
     <div className='home'>
         <div className='home-container'>
