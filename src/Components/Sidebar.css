@@ -34,6 +34,7 @@
   justify-content: space-evenly;
   width: 150px;
   color: #51585c;
+  cursor: pointer;
 }
 
 .sidebar-header-btn > .MuiSvgIcon-root {

@@ -3,9 +3,10 @@ import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "./Sidebar.css";
-import { Search } from "@mui/icons-material";
+import { Logout, LogoutSharp, Search, ToggleOffTwoTone, ToggleOnSharp } from "@mui/icons-material";
 import Userprofile from "./Userprofile";
 import db from "../firebase";
+import { ToggleButton } from "@mui/material";
 function Sidebar({ currentUser, signOut }) {
   const [allUsers, setAllUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
@@ -63,13 +64,13 @@ function Sidebar({ currentUser, signOut }) {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <div className="sidebar-header-img" onClick={signOut}>
+        <div className="sidebar-header-img">
           <img src={currentUser?.photoURL} alt="" />
         </div>
         <div className="sidebar-header-btn">
-          <DonutLargeIcon />
+           <ToggleOffTwoTone/>
           <InsertCommentIcon />
-          <MoreVertIcon />
+          <Logout onClick ={signOut}/>
         </div>
       </div>
 
@@ -104,4 +105,5 @@ function Sidebar({ currentUser, signOut }) {
 }
 
 export default Sidebar;
+
 
