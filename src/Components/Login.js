@@ -26,6 +26,7 @@ function Login({ setUser }) {
     <div className="login">
 
       <div className="login-container">
+      <h2>Welcome to Whatsapp Clone</h2>
         <img
           className="login-logo"
           src="./whatsapp-logo.png"
